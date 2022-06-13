@@ -14,7 +14,6 @@ let data = {
     website: 'hildegard.org'
 }
 // a. spread oprator
-
 const spread = {
     ...data,
     name: 'Ayi Solahudin',
@@ -24,7 +23,6 @@ const spread = {
 console.log(spread)
 
 // b. destructuring
-
 const {street, city} = data.address
 
 console.log (`Street = ${street} \nCity = ${city}`)
