@@ -1,10 +1,10 @@
 // PROGRAM 1
-const album = require('fs')
+const fs = require('fs')
 
 const dataAlbum = () => {
     return new Promise((resolve, reject) => {
         setTimeout (() => {
-            album.readFile('daftarLagu.txt', 'utf8', (err, res) => {
+            fs.readFile('daftarLagu.txt', 'utf8', (err, res) => {
                 if (err) {
                     reject(new Error('Sorry Data Not Found'))
                 } else {
@@ -53,25 +53,3 @@ const dataHobi = (hobby) => {
 dataHobi('game')
     .then((res) => console.log(`Data dengan hobby tersebut adalah: `, res))
     .catch((err) => console.log(err.message))
-
-
-
-// const axios = require('axios')
-// const url = 'https://spotify.com/v1/artists/1vCWHaC5f2uS3yhpwWbIA6/albums?'
-
-// const daftarLagu = (apiUrl) => 
-// new Promise((resolve, reject) => {
-//     if (apiUrl === '') {
-//         reject(new Error('Data yang anda masukan salah'));
-//     } else {
-//     axios.get(apiUrl)
-//         .then( res => {
-//             const request = res.data
-//             request.find((item) => console.log(item.name))
-//         })
-//     }
-// })
-
-// daftarLagu(url)
-//     .then((res) => console.log(res))
-//     .catch((err) => console.log(err.message))
