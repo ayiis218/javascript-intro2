@@ -1,29 +1,30 @@
 const cekHariKerja = (day) => {
-    return new Promise ((resolve, reject) => {
-        setTimeout (() => {
-            try {
-                if (!day){
-                    throw Error ('Input salah periksa kembali')
-                } else {
-                    const dataDay = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu']
-                    let cek = dataDay.find( item => {
-                        return item.toLowerCase() === day.toLowerCase()})
-                        if (cek) {
-                            resolve (cek)
-                        } else {
-                            reject(new Error('Hari ini bukan hari kerja'))
-                        }
-                }
-            } catch (error) {
-                reject(error)
+   return new Promise((resolve, reject) => {
+      setTimeout(() => {
+         try {
+            if (typeof day !== 'string') {
+               throw Error('Input salah periksa kembali');
+            } else {
+               const dataDay = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat'];
+               let check = dataDay.find((item) => {
+                  return item.toLowerCase() === day.toLowerCase();
+               });
+               if (check) {
+                  resolve(check);
+               } else {
+                  reject(new Error('Hari ini bukan hari kerja'));
+               }
             }
-        }, 4000)
-    })
-}
+         } catch (error) {
+            reject(error);
+         }
+      }, 4000);
+   });
+};
 
-cekHariKerja()
-    .then((res) => console.log(res, 'Selamat Bekerja'))
-    .catch((err) => console.log(err.message))
+cekHariKerja('senin')
+   .then((res) => console.log(res, 'Selamat Bekerja'))
+   .catch((err) => console.log(err.message));
 
 /* 
 Then catch

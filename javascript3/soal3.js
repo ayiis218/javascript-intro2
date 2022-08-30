@@ -21,27 +21,27 @@ dataAlbum()
 
 
 // PROGRAM 2
-const dataHobi = (hobby) => {
+const dataHobby = (hobby) => {
     return new Promise ((resolve, reject) => {
         setTimeout(() => {
             if (typeof hobby !== "string") {
                 reject(new Error("Data yang anda input harus String"))
             } else {
                 const data = [
-                    { id: 001, nama: 'Rafi', hobi: 'musik' },
-                    { id: 002, nama: 'Ridho', hobi: 'musik' },
-                    { id: 003, nama: 'Rifa', hobi: 'membaca buku' },
-                    { id: 004, nama: 'rey', hobi: 'traveling' },
-                    { id: 005, nama: 'ronal', hobi: 'game' },
-                    { id: 006, nama: 'riki', hobi: 'musik' },
-                    { id: 007, nama: 'reski', hobi: 'game' }
+                    { id: 001, name: 'Rafi', hobby: 'musik' },
+                    { id: 002, name: 'Ridho', hobby: 'musik' },
+                    { id: 003, name: 'Rifa', hobby: 'membaca buku' },
+                    { id: 004, name: 'rey', hobby: 'traveling' },
+                    { id: 005, name: 'ronal', hobby: 'game' },
+                    { id: 006, name: 'riki', hobby: 'musik' },
+                    { id: 007, name: 'reski', hobby: 'game' }
                 ]
                 
-                let tampil = data.filter((x) => { 
-                    return x.hobi.toLowerCase() === hobby.toLowerCase() 
+                let show = data.filter((x) => { 
+                    return x.hobby.toLowerCase() === hobby.toLowerCase() 
                 })
-                    if (tampil) {
-                        resolve (tampil)
+                    if (show) {
+                        resolve (show)
                     } else {
                         reject(new Error('Hobby tersebut tidak ada'))
                     }
@@ -50,6 +50,6 @@ const dataHobi = (hobby) => {
     })
 }
 
-dataHobi('game')
+dataHobby('game')
     .then((res) => console.log(`Data dengan hobby tersebut adalah: `, res))
     .catch((err) => console.log(err.message))
